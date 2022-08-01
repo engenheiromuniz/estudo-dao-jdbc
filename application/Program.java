@@ -1,7 +1,11 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
+import model.entities.Department;
 import model.entities.Seller;
 
 
@@ -18,12 +22,17 @@ public class Program {
 //		JOptionPane.showMessageDialog(null, "Department: "+obj+"\nSeller: "+seller, "Print obj element",
 //				JOptionPane.PLAIN_MESSAGE );
 		
+		System.out.println("---Teste 1, Picking up SellerById---");
 		Seller seller = sellerDao.findById(9);
 		System.out.println(seller);
 		
-		
-		
-			
+		System.out.println("\n---Teste 2, Picking up SellerByDepartmentById---");
+		Department department = new Department(4, null);
+		List<Seller> list = sellerDao.findByDepartment(department);
+		  		
+		for (Seller s : list) {
+			System.out.println(s);
+		}	
 
 	}
 
